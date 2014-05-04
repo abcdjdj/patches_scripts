@@ -1,0 +1,1 @@
+rm -rf abi/ bootable/ developers/ external/ libcore/ out/ sdk/ android/ build/ development/ frameworks/ libnativehelper/ packages/ system/ art/ cts/ device/ hardware/ Makefile pdk/ tools/ bionic/ dalvik/ docs/ kernel/ ndk/ prebuilts/ vendor/
