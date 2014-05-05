@@ -1,9 +1,9 @@
-From d4845f9dffe562abc8b58cf214724459e1312fef Mon Sep 17 00:00:00 2001
+From 6a59588a073c2047bcc621743d699b864561f4aa Mon Sep 17 00:00:00 2001
 From: abcdjdj <abcdjdj@gmail.com>
-Date: Sun, 4 May 2014 18:05:52 +0530
+Date: Mon, 5 May 2014 16:01:46 +0530
 Subject: [PATCH] LINARO
 
-Change-Id: I947542839732fcd653226ca4d6e39f58ca89adf5
+Change-Id: Id6c3778de8f00608a04157768af3d399bded8451
 ---
  core/combo/TARGET_linux-arm.mk | 1 +
  core/tasks/kernel.mk           | 4 ++--
@@ -11,7 +11,7 @@ Change-Id: I947542839732fcd653226ca4d6e39f58ca89adf5
  3 files changed, 4 insertions(+), 3 deletions(-)
 
 diff --git a/core/combo/TARGET_linux-arm.mk b/core/combo/TARGET_linux-arm.mk
-index ae6623c..1167d8e 100644
+index ece5b98..c664588 100644
 --- a/core/combo/TARGET_linux-arm.mk
 +++ b/core/combo/TARGET_linux-arm.mk
 @@ -48,6 +48,7 @@ endif
@@ -23,27 +23,27 @@ index ae6623c..1167d8e 100644
  TARGET_TOOLCHAIN_ROOT := prebuilts/gcc/$(HOST_PREBUILT_TAG)/arm/arm-linux-androideabi-$(TARGET_GCC_VERSION)
  TARGET_TOOLS_PREFIX := $(TARGET_TOOLCHAIN_ROOT)/bin/arm-linux-androideabi-
 diff --git a/core/tasks/kernel.mk b/core/tasks/kernel.mk
-index 322e0ff..59dc516 100644
+index d27b6ba..4d8e2f4 100644
 --- a/core/tasks/kernel.mk
 +++ b/core/tasks/kernel.mk
-@@ -145,10 +145,10 @@ ifeq ($(TARGET_ARCH),arm)
+@@ -147,10 +147,10 @@ ifeq ($(TARGET_ARCH),arm)
          ifeq ($(HOST_OS),darwin)
-             ARM_CROSS_COMPILE:=CROSS_COMPILE="$(ccache) $(ANDROID_BUILD_TOP)/prebuilt/darwin-x86/toolchain/$(TARGET_KERNEL_CUSTOM_TOOLCHAIN)"
+             ARM_CROSS_COMPILE:=CROSS_COMPILE="$(ccache) $(ANDROID_BUILD_TOP)/prebuilts/gcc/darwin-x86/arm/$(TARGET_KERNEL_CUSTOM_TOOLCHAIN)/bin/arm-eabi-"
          else
--            ARM_CROSS_COMPILE:=CROSS_COMPILE="$(ccache) $(ANDROID_BUILD_TOP)/prebuilt/linux-x86/toolchain/$(TARGET_KERNEL_CUSTOM_TOOLCHAIN)"
+-            ARM_CROSS_COMPILE:=CROSS_COMPILE="$(ccache) $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/$(TARGET_KERNEL_CUSTOM_TOOLCHAIN)/bin/arm-eabi-"
 +            ARM_CROSS_COMPILE:=CROSS_COMPILE="$(ccache) $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/LINARO-KERNEL/bin/arm-eabi-"
          endif
      else
 -        ARM_CROSS_COMPILE:=CROSS_COMPILE="$(ccache) $(ARM_EABI_TOOLCHAIN)/arm-eabi-"
 +        ARM_CROSS_COMPILE:=CROSS_COMPILE="$(ccache) $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/LINARO-KERNEL/bin/arm-eabi-"
      endif
-     ccache =
+     ccache = 
  endif
 diff --git a/envsetup.sh b/envsetup.sh
-index 5d8c496..8faf02a 100644
+index 25cccb2..dfbb82c 100644
 --- a/envsetup.sh
 +++ b/envsetup.sh
-@@ -152,7 +152,7 @@ function setpaths()
+@@ -137,7 +137,7 @@ function setpaths()
      case $ARCH in
          x86) toolchaindir=x86/i686-linux-android-$targetgccversion/bin
              ;;
